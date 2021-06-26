@@ -1,7 +1,12 @@
 import { gsap } from "gsap";
-
+// targets
 const topPic = document.querySelector('.top-pic');
 const busHeader = document.querySelector('.busHeader');
 
-topPic.addEventListener('dblclick', () => gsap.to(".top-pic", {duration: 1, rotation: 360, scale: 1}));
-busHeader.addEventListener('click', () => gsap.to('.busHeader', {duration: 2, x: 300}));
+// animation functions
+const spin = (e) => gsap.to(e.target, {duration: 0.5, rotation: 720}).restart(false,false);
+const center = (e) => gsap.to(e.target, {duration: 1, x: 275});
+
+// execution
+topPic.addEventListener('dblclick', spin);
+busHeader.addEventListener('click', center);
